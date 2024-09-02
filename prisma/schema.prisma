@@ -37,6 +37,7 @@ model Purchase {
   userId      String
   bookId      String
   createdAt   DateTime @default(now())
+  // 親の購入履歴が削除されたら、子の購入履歴も削除される=>Cascade
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
  
